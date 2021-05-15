@@ -10,85 +10,18 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
     <artifactId>myspringboot-common</artifactId>
     <packaging>jar</packaging>
     <name>myspringboot-common</name>
 
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <profileActive>dev</profileActive>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <profileActive>test</profileActive>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>daily</id>
-            <properties>
-                <profileActive>daily</profileActive>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <profileActive>prod</profileActive>
-            </properties>
-        </profile>
-    </profiles>
-
-
     <dependencies>
-        <!--引入springboot的web支持(web启动器)-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
+        <!--SpringBoot的jpa是处理单表比较好用-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.45</version>
-        </dependency>
-
-        <!--springboot的测试依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- 引入 spring-boot -swagger 并生成优美的API文档-->
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-swagger2</artifactId>-->
-            <!--<version>2.2.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-swagger-ui</artifactId>-->
-            <!--<version>2.2.2</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -98,6 +31,53 @@
 
     </dependencies>
 
+    <!--这个主要是配置本地私服，方便本地jar包的deploy-->
+    <!-- zp add cas repositories -->
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>DataLake-Releases</id>-->
+            <!--<name>DataLake-Releases</name>-->
+            <!--<url>http://maven.yonyou.com/nexus/content/repositories/DataLake-Releases/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>always</updatePolicy>-->
+            <!--</snapshots>-->
+            <!--<releases>-->
+                <!--<enabled>false</enabled>-->
+                <!--<updatePolicy>always</updatePolicy>-->
+            <!--</releases>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>yonyou</id>-->
+            <!--<name>yonyou</name>-->
+            <!--<url>http://maven.yonyou.com/nexus/content/groups/public/</url>-->
+            <!--<layout>default</layout>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>yhtSnapshots</id>-->
+            <!--<name>yhtSnapshots</name>-->
+            <!--<url>http://maven.yonyou.com/nexus/content/repositories/YHTCloud-Snapshot/</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>iUAP</id>-->
+            <!--<name>iUAP-Snapshots</name>-->
+            <!--<url>http://maven.yonyou.com/nexus/content/repositories/iUAP-Snapshots/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+    <!--构建打包的时候需要添加的配置信息，主要是里面的plugin特别多-->
     <build>
         <plugins>
             <!-- compiler插件, 设定JDK版本 -->

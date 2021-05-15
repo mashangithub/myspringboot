@@ -1,5 +1,10 @@
 package com.ljm.cn.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Student {
 
     int id;

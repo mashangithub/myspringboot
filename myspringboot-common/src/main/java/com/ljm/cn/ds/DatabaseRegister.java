@@ -1,4 +1,4 @@
-package com.ljm.cn.db;
+package com.ljm.cn.ds;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
